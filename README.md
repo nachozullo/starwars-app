@@ -4,6 +4,20 @@ First, thanks for making the time for this challenge! We really appreciate it.
 
 ## Challenge - Star Wars
 
+### Start the project
+
+Install dependencies:
+
+### `npm install`
+
+Add `.env` file with this content: 
+
+`REACT_APP_API_URL=https://swapi.dev/api`
+
+Start the project:
+
+### `npm start`
+
 ### What should you build?
 
 Design a small React app that shows a list of characters using the api SWAPI (https://swapi.dev/). This list should have a traditional pager or a scrolling pager, you decide. Add the ability to navigate the list filtering by race, character, planets and starships. When an item is clicked, show the details of it.
