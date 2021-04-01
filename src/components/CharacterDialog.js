@@ -41,7 +41,7 @@ const CharacterDialog = ({ url, open, onClose }) => {
 
   useEffect(() => {
     if (open && url) get();
-  }, [open, url]);
+  }, [open, url, get]);
 
   return (
     <>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { httpToHttps } from "../utils/utils";
 
 const useGetAll = (data, arrayName) => {
   const [results, setResults] = useState(null);
@@ -9,7 +10,7 @@ const useGetAll = (data, arrayName) => {
       setLoading(true);
       Promise.all(
         data[arrayName].map(item =>
-          fetch(item)
+          fetch(httpToHttps(item))
             .then(res => res.json())
             .catch(err => console.error(err))
         )

@@ -4,6 +4,7 @@ import { Loading, Header, CharacterCard, NoResults, ServerError, SearchBar } fro
 import CharacterDialog from "../components/CharacterDialog";
 import FilterByDialog from "../components/FilterByDialog";
 import { useDebounce } from "../hooks";
+import { httpToHttps } from "../utils/utils";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -71,7 +72,7 @@ const Home = () => {
         const characters = data.results.flatMap(specie => specie[characterField]);
         Promise.all(
           characters.map(item =>
-            fetch(item)
+            fetch(httpToHttps(item))
               .then(res => res.json())
               .catch(err => {
                 setError(true);
@@ -107,7 +108,7 @@ const Home = () => {
 
   const getMore = () => {
     setLoadingMore(true);
-    fetch(data.next)
+    fetch(httpToHttps(data.next))
       .then(res => res.json())
       .then(data => setData(prevData => ({ ...data, results: [...prevData.results, ...data.results] })))
       .catch(err => {

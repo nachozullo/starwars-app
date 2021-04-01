@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { httpToHttps } from "../utils/utils";
 
 const useGetAPI = (url, initialFetch = true) => {
   const [loading, setLoading] = useState(false);
@@ -10,7 +11,7 @@ const useGetAPI = (url, initialFetch = true) => {
       setLoading(true);
       setError(false);
       setData(null);
-      fetch(newUrl)
+      fetch(httpToHttps(newUrl))
         .then(res => res.json())
         .then(data => setData(data))
         .catch(err => {
