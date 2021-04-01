@@ -1,7 +1,7 @@
-import { MuiThemeProvider, createMuiTheme, responsiveFontSizes } from "@material-ui/core";
+import { MuiThemeProvider, createMuiTheme, CssBaseline } from "@material-ui/core";
 import Routes from "./routes";
 
-let theme = createMuiTheme({
+export const theme = createMuiTheme({
   palette: {
     primary: {
       main: "#DBA90C",
@@ -23,11 +23,10 @@ let theme = createMuiTheme({
   },
 });
 
-theme = responsiveFontSizes(theme);
-
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
+      <CssBaseline />
       <Routes />
     </MuiThemeProvider>
   );

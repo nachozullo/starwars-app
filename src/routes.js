@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import Home from "./screens/Home";
-import GalacticLeague from "./screens/GalacticLeague";
+import Home from "./screens/Home/Home";
+import GalacticLeague from "./screens/GalacticLeague/GalacticLeague";
 
 const routes = () => {
   return (

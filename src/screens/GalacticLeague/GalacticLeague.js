@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
-import { ErrorToast, Autocomplete, Dialog, Header, TeamMemberCard, AddItem } from "../components/common";
-import { toCamelCase } from "../utils/utils";
-import { useLocalStorage } from "../hooks";
+import { ErrorToast, Autocomplete, Dialog, Header, TeamMemberCard, AddItem } from "../../components/common";
+import { toCamelCase } from "../../utils/utils";
+import { useLocalStorage } from "../../hooks";
 
 const ENDPOINTS = {
   species: "/species",

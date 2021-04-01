@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button, makeStyles } from "@material-ui/core";
-import { Loading, Header, CharacterCard, NoResults, ServerError, SearchBar } from "../components/common";
-import CharacterDialog from "../components/CharacterDialog";
-import FilterByDialog from "../components/FilterByDialog";
-import { useDebounce } from "../hooks";
-import { httpToHttps } from "../utils/utils";
+import { Loading, Header, CharacterCard, NoResults, ServerError, SearchBar } from "../../components/common";
+import CharacterDialog from "../../components/CharacterDialog";
+import FilterByDialog from "../../components/FilterByDialog";
+import { useDebounce } from "../../hooks";
+import { httpToHttps } from "../../utils/utils";
 
 const useStyles = makeStyles(theme => ({
   container: {
