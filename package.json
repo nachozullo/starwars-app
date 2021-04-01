@@ -23,12 +23,13 @@
     "dotenv": "^8.2.0",
     "jest": "^26.6.0",
     "msw": "^0.28.0",
+    "regenerator-runtime": "^0.13.7",
     "whatwg-fetch": "^3.6.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

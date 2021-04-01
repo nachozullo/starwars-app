@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const TeamMemberCard = ({ handleDelete, handleUpdate, member }) => {
+const TeamMemberCard = ({ handleDelete, handleUpdate, member, type }) => {
   const styles = useStyles();
   const theme = useTheme();
   const [mouseOver, setMouseOver] = useState(false);
@@ -38,12 +38,16 @@ const TeamMemberCard = ({ handleDelete, handleUpdate, member }) => {
         {(mouseOver || smallScreen) && (
           <div>
             <Tooltip title="Delete" placement="right">
-              <IconButton className={styles.iconButton} onClick={() => handleDelete(member)}>
+              <IconButton
+                aria-label={`delete-${type}`}
+                className={styles.iconButton}
+                onClick={() => handleDelete(member)}
+              >
                 <Delete className={styles.button} />
               </IconButton>
             </Tooltip>
             <Tooltip title="Change" placement="right">
-              <IconButton className={styles.iconButton} onClick={handleUpdate}>
+              <IconButton aria-label={`change-${type}`} className={styles.iconButton} onClick={handleUpdate}>
                 <Autorenew className={styles.button} />
               </IconButton>
             </Tooltip>
@@ -54,12 +58,12 @@ const TeamMemberCard = ({ handleDelete, handleUpdate, member }) => {
   );
 };
 
-const AddItem = ({ handleAdd, disabled }) => {
+const AddItem = ({ type, handleAdd, disabled }) => {
   const styles = useStyles();
   return (
     <Tooltip title={disabled ? "You must first add an specie" : ""}>
       <Paper elevation={2} className={styles.cardContainer}>
-        <IconButton className={styles.iconButton} onClick={handleAdd} disabled={disabled}>
+        <IconButton aria-label={type} className={styles.iconButton} onClick={handleAdd} disabled={disabled}>
           <AddCircle style={{ fontSize: 40, color: disabled && "#cbcbcb" }} color="primary" />
         </IconButton>
       </Paper>

@@ -46,9 +46,10 @@ const TeamMembers = ({ type, members, handleDelete, handleAdd, disabled }) => {
               handleDelete={handleDelete(type)}
               handleUpdate={handleAdd(type, index)}
               member={member}
+              type={type}
             />
           ) : (
-            <AddItem key={index} handleAdd={handleAdd(type, index)} disabled={disabled} />
+            <AddItem key={index} handleAdd={handleAdd(type, index)} disabled={disabled} type={type} />
           )
         )}
       </div>
