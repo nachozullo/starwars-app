@@ -1,8 +1,4 @@
-# Foreword
-
-First, thanks for making the time for this challenge! We really appreciate it.
-
-## Challenge - Star Wars
+## Star Wars APP
 
 ### What should you build?
 
