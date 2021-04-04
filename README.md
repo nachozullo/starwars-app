@@ -1,8 +1,8 @@
-# Foreword
+## Star Wars APP
 
-First, thanks for making the time for this challenge! We really appreciate it.
+### Demo
 
-## Challenge - Star Wars
+https://starwars-github.netlify.app/
 
 ### What should you build?
 
