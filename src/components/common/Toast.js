@@ -2,7 +2,6 @@ import React from "react";
 import Alert from "@material-ui/lab/Alert/Alert";
 import Snackbar from "@material-ui/core/Snackbar/Snackbar";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { useTheme } from "@material-ui/core";
 
 const styles = () => ({
   icon: {
