@@ -1,5 +1,6 @@
 import React from "react";
-import { AppBar, makeStyles, Toolbar } from "@material-ui/core";
+import { AppBar, IconButton, makeStyles, Toolbar, Tooltip } from "@material-ui/core";
+import { Brightness4 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
@@ -13,13 +14,13 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     textDecoration: "none",
-    color: "#DBA90C",
+    color: theme.palette.primary.main,
     textTransform: "uppercase",
     fontWeight: "600",
   },
 }));
 
-const Header = () => {
+const Header = ({ onToggleDarkMode }) => {
   const styles = useStyles();
   return (
     <AppBar className={styles.header} elevation={1} position="static">
@@ -34,6 +35,12 @@ const Header = () => {
         <Link to="/my_galactic_league" className={styles.link}>
           My Galactic League
         </Link>
+        <div style={{ width: 20 }} />
+        <Tooltip title="Toggle light/dark mode">
+          <IconButton onClick={onToggleDarkMode}>
+            <Brightness4 color="primary" />
+          </IconButton>
+        </Tooltip>
       </Toolbar>
     </AppBar>
   );

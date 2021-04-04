@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     flex: 1,
   },
   searchIcon: {
-    color: "grey",
+    color: theme.palette.text.secondary,
     paddingBottom: 2,
   },
   input: {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
-import { ErrorToast, Autocomplete, Dialog, Header, TeamMemberCard, AddItem } from "../../components/common";
+import { ErrorToast, Autocomplete, Dialog, TeamMemberCard, AddItem } from "../../components/common";
 import { toCamelCase } from "../../utils/utils";
 import { useLocalStorage } from "../../hooks";
 
@@ -121,7 +121,6 @@ const GalacticLeague = () => {
 
   return (
     <>
-      <Header />
       <div className={styles.teamContainer}>
         <h1>My Galactic League</h1>
         <TeamMembers type="species" handleDelete={handleDeleteMember} members={species} handleAdd={handleOpenDialog} />

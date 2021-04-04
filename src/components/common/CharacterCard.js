@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles, Paper } from "@material-ui/core";
-import Attribute from "./Attribute";
+import { Attribute } from "./Attribute";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     margin: 10,
     width: 300,
     cursor: "pointer",
-    color: "#2e2e2e",
+    color: theme.palette.text.primary,
   },
   title: {
     margin: "5px 0",

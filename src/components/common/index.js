@@ -4,7 +4,7 @@ import Dialog from "./Dialog";
 import Header from "./Header";
 import Loading from "./Loading";
 import { ErrorToast, SuccessToast, ServerError } from "./Toast";
-import Attribute from "./Attribute";
+import { Attribute, ArrayData } from "./Attribute";
 import NoResults from "./NoResults";
 import { TeamMemberCard, AddItem } from "./TeamMemberCard";
 import SearchBar from "./SearchBar";
@@ -18,6 +18,7 @@ export {
   ErrorToast,
   SuccessToast,
   Attribute,
+  ArrayData,
   NoResults,
   TeamMemberCard,
   AddItem,

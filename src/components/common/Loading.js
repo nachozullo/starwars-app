@@ -1,7 +1,7 @@
 import React from "react";
 import { CircularProgress, makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     alignItems: "center",
@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
   },
   message: {
     fontSize: 16,
-    color: "grey",
+    color: theme.palette.text.secondary,
     fontWeight: "500",
   },
 }));

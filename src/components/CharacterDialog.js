@@ -1,42 +1,10 @@
 import React, { useEffect } from "react";
-import { CircularProgress, makeStyles } from "@material-ui/core";
-import { useGetAll, useGetAPI } from "../hooks";
-import { Loading, Dialog, Attribute, ServerError } from "./common";
-
-const useStyles = makeStyles(theme => ({
-  field: {
-    color: "grey",
-    fontWeight: "600",
-  },
-  fieldContainer: {
-    margin: "20px 0",
-  },
-}));
-
-const ArrayData = ({ data, arrayName, field }) => {
-  const styles = useStyles();
-  const [results, loading] = useGetAll(data, arrayName);
-
-  return (
-    <div className={styles.fieldContainer}>
-      <span className={styles.field}>{arrayName.toUpperCase()}: </span>
-      <span>
-        {loading ? (
-          <>
-            <CircularProgress size={16} style={{ marginLeft: 10 }} />
-            <span style={{ marginLeft: 10 }}>Loading {arrayName}...</span>
-          </>
-        ) : results ? (
-          results.map(item => item[field]).join(", ")
-        ) : (
-          "-"
-        )}
-      </span>
-    </div>
-  );
-};
+import { useTheme } from "@material-ui/core";
+import { useGetAPI } from "../hooks";
+import { Loading, Dialog, Attribute, ServerError, ArrayData } from "./common";
 
 const CharacterDialog = ({ url, open, onClose }) => {
+  const theme = useTheme();
   const { loading, data, error, setError, get } = useGetAPI(url, false);
 
   useEffect(() => {
@@ -49,7 +17,10 @@ const CharacterDialog = ({ url, open, onClose }) => {
         onClose={onClose}
         open={open}
         title={data?.name}
-        titleStyle={{ paddingBottom: 16, border: "1px solid #e3e3e3" }}
+        titleStyle={{
+          paddingBottom: 16,
+          borderBottom: `1px solid ${theme.palette.type === "light" ? "#e3e3e3" : "#5a5a5a"}`,
+        }}
       >
         {loading ? (
           <Loading size={60} message="Loading character..." style={{ margin: "20px 0" }} />

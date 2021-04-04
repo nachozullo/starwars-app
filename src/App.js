@@ -1,33 +1,26 @@
-import { MuiThemeProvider, createMuiTheme, CssBaseline } from "@material-ui/core";
-import Routes from "./routes";
-
-export const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#DBA90C",
-      contrastText: "#2e2e2e",
-    },
-    state: {
-      success: "#1B9F20",
-      failure: "#FF0000",
-    },
-    text: {
-      primary: "#2e2e2e",
-      secondary: "grey",
-    },
-  },
-  typography: {
-    // Use the system font instead of the default Roboto font.
-    fontFamily: ['"Roboto"', "sans-serif"].join(","),
-    useNextVariants: true,
-  },
-});
+import { MuiThemeProvider, CssBaseline } from "@material-ui/core";
+import React from "react";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
+import Home from "./screens/Home/Home";
+import GalacticLeague from "./screens/GalacticLeague/GalacticLeague";
+import { Header } from "./components/common";
+import { useLocalStorage } from "./hooks";
+import { darkTheme, lightTheme } from "./theme";
 
 function App() {
+  const [darkMode, setDarkMode] = useLocalStorage("darkMode", false);
   return (
-    <MuiThemeProvider theme={theme}>
+    <MuiThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
-      <Routes />
+      <Router>
+        <Header onToggleDarkMode={() => setDarkMode(prevDarkMode => !prevDarkMode)} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/my_galactic_league" component={GalacticLeague} />
+          <Route path="/404" component={() => <div>404 Not Found</div>} />
+          <Redirect from="*" to="/404" />
+        </Switch>
+      </Router>
     </MuiThemeProvider>
   );
 }

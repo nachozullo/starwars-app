@@ -53,7 +53,7 @@ const ApiAutocomplete = ({ label, field, path, handleSelect, disabled = false, s
         onChange={(event, newValue) => handleSelectOption(newValue)}
         loading={loading}
         loadingText="Loading..."
-        style={{ ...style, flex: 1, marginRight: 20 }}
+        style={{ ...style, flex: 1 }}
         renderInput={params => <TextField {...params} autoFocus label={label} margin="normal" />}
       />
       {selected && (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, makeStyles } from "@material-ui/core";
-import { Loading, Header, CharacterCard, NoResults, ServerError, SearchBar } from "../../components/common";
+import { Loading, CharacterCard, NoResults, ServerError, SearchBar } from "../../components/common";
 import CharacterDialog from "../../components/CharacterDialog";
 import FilterByDialog from "../../components/FilterByDialog";
 import { useDebounce } from "../../hooks";
@@ -127,7 +127,6 @@ const Home = () => {
 
   return (
     <>
-      <Header />
       <div className={styles.container}>
         <h1>List of characters</h1>
         <SearchBar
