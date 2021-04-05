@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, makeStyles } from "@material-ui/core";
-import { Loading, CharacterCard, NoResults, ServerError, SearchBar } from "../../components/common";
+import { CharacterCard, NoResults, ServerError, SearchBar, CharacterLoadingCard } from "../../components/common";
 import CharacterDialog from "../../components/CharacterDialog";
 import FilterByDialog from "../../components/FilterByDialog";
 import { useDebounce } from "../../hooks";
@@ -137,7 +137,7 @@ const Home = () => {
         />
         <div className={styles.results}>
           {loading ? (
-            <Loading size={60} message="Loading characters..." style={{ margin: "20px 0" }} />
+            <CharacterLoadingCard amount={10} />
           ) : data?.results.length === 0 ? (
             <NoResults title="No characters found" text="We cannot find the character you are searching for." />
           ) : (
@@ -149,14 +149,13 @@ const Home = () => {
               />
             ))
           )}
+          {loadingMore && <CharacterLoadingCard amount={5} />}
         </div>
-        {loadingMore ? (
-          <Loading style={{ margin: "20px 0" }} />
-        ) : data?.next && !loading ? (
+        {data?.next && !loading && !loadingMore && (
           <Button onClick={getMore} color="primary" className={styles.loadMore}>
             Load more characters
           </Button>
-        ) : null}
+        )}
       </div>
       <CharacterDialog open={openCharacterDialog} onClose={() => setSelectedCharacter(null)} url={selectedCharacter} />
       <FilterByDialog

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { makeStyles, Paper } from "@material-ui/core";
+import { makeStyles, Paper, useTheme } from "@material-ui/core";
 import { Attribute } from "./Attribute";
+import { Skeleton } from "@material-ui/lab";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -16,6 +17,12 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "600",
   },
 }));
+
+const CharacterLoadingCard = ({ amount = 1 }) => {
+  return [...Array(amount)].map((value, i) => (
+    <Skeleton style={{ margin: 10, borderRadius: 4 }} key={i} variant="rect" height={193} width={300} />
+  ));
+};
 
 const CharacterCard = ({ character, onClick }) => {
   const [mouseOver, setMouseOver] = useState(false);
@@ -33,4 +40,4 @@ const CharacterCard = ({ character, onClick }) => {
   );
 };
 
-export default CharacterCard;
+export { CharacterLoadingCard, CharacterCard };

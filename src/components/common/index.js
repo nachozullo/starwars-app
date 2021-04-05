@@ -1,5 +1,5 @@
 import Autocomplete from "./Autocomplete";
-import CharacterCard from "./CharacterCard";
+import { CharacterCard, CharacterLoadingCard } from "./CharacterCard";
 import Dialog from "./Dialog";
 import Header from "./Header";
 import Loading from "./Loading";
@@ -12,6 +12,7 @@ import SearchBar from "./SearchBar";
 export {
   Autocomplete,
   CharacterCard,
+  CharacterLoadingCard,
   Dialog,
   Header,
   Loading,
