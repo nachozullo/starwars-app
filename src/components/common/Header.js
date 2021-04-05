@@ -1,6 +1,6 @@
 import React from "react";
 import { AppBar, IconButton, makeStyles, Toolbar, Tooltip } from "@material-ui/core";
-import { Brightness4, Star } from "@material-ui/icons";
+import { Brightness4, Star, GitHub } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useSmallScreen } from "../../hooks";
 
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: 15,
   },
   icon: {
-    fontSize: 26,
+    fontSize: 24,
   },
 }));
 
@@ -54,6 +54,11 @@ const Header = ({ onToggleDarkMode }) => {
         <Tooltip title="Toggle light/dark mode">
           <IconButton onClick={onToggleDarkMode}>
             <Brightness4 color="primary" className={styles.icon} />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Github repository">
+          <IconButton onClick={() => window.open("https://github.com/nachozullo/starwars-app", "_blank")}>
+            <GitHub color="primary" className={styles.icon} />
           </IconButton>
         </Tooltip>
       </Toolbar>
