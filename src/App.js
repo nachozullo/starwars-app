@@ -1,4 +1,4 @@
-import { MuiThemeProvider, CssBaseline } from "@material-ui/core";
+import { MuiThemeProvider, CssBaseline, useMediaQuery } from "@material-ui/core";
 import React from "react";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import Home from "./screens/Home/Home";
@@ -8,7 +8,8 @@ import { useLocalStorage } from "./hooks";
 import { darkTheme, lightTheme } from "./theme";
 
 function App() {
-  const [darkMode, setDarkMode] = useLocalStorage("darkMode", false);
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [darkMode, setDarkMode] = useLocalStorage("darkMode", prefersDarkMode || false);
   return (
     <MuiThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />

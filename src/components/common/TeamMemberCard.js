@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   cardTitle: {
     margin: 0,
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: "600",
     textAlign: "center",
     maxHeight: 48,
@@ -39,7 +39,7 @@ const TeamMemberCard = ({ handleDelete, handleUpdate, member, type }) => {
         <p className={styles.cardTitle}>{member.name}</p>
         {(mouseOver || smallScreen) && (
           <div style={{ marginTop: 5 }}>
-            <Tooltip title="Delete" placement="right">
+            <Tooltip title="Delete">
               <IconButton
                 aria-label={`delete-${type}`}
                 className={styles.iconButton}
@@ -48,7 +48,7 @@ const TeamMemberCard = ({ handleDelete, handleUpdate, member, type }) => {
                 <Delete className={styles.button} />
               </IconButton>
             </Tooltip>
-            <Tooltip title="Change" placement="right">
+            <Tooltip title="Change">
               <IconButton className={styles.iconButton} onClick={handleUpdate}>
                 <Autorenew className={styles.button} />
               </IconButton>
