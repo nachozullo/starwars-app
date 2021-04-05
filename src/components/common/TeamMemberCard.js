@@ -4,10 +4,10 @@ import { AddCircle, Autorenew, Delete } from "@material-ui/icons";
 
 const useStyles = makeStyles(theme => ({
   cardContainer: {
-    padding: "10px 20px",
+    padding: 10,
     margin: 10,
-    width: 150,
-    height: 150,
+    width: 200,
+    height: 110,
     color: theme.palette.text.primary,
     display: "flex",
     flexDirection: "column",
@@ -15,10 +15,12 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
   },
   cardTitle: {
-    marginBottom: 10,
+    margin: 0,
     fontSize: 18,
     fontWeight: "600",
     textAlign: "center",
+    maxHeight: 48,
+    overflowY: "hidden",
   },
   iconButton: {
     padding: 2,
@@ -36,7 +38,7 @@ const TeamMemberCard = ({ handleDelete, handleUpdate, member, type }) => {
       <Paper elevation={mouseOver ? 6 : 2} className={styles.cardContainer}>
         <p className={styles.cardTitle}>{member.name}</p>
         {(mouseOver || smallScreen) && (
-          <div>
+          <div style={{ marginTop: 5 }}>
             <Tooltip title="Delete" placement="right">
               <IconButton
                 aria-label={`delete-${type}`}
@@ -47,7 +49,7 @@ const TeamMemberCard = ({ handleDelete, handleUpdate, member, type }) => {
               </IconButton>
             </Tooltip>
             <Tooltip title="Change" placement="right">
-              <IconButton aria-label={`change-${type}`} className={styles.iconButton} onClick={handleUpdate}>
+              <IconButton className={styles.iconButton} onClick={handleUpdate}>
                 <Autorenew className={styles.button} />
               </IconButton>
             </Tooltip>

@@ -5,6 +5,8 @@ import {
   DialogTitle as MuiDialogTitle,
   IconButton,
   makeStyles,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 
@@ -36,8 +38,10 @@ const DialogTitle = ({ children, classes, onClose, style, ...other }) => {
 };
 
 const Dialog = ({ title, open, onClose, children, titleStyle }) => {
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("xs"));
   return (
-    <MuiDialog onClose={onClose} open={open} maxWidth="xs" fullWidth>
+    <MuiDialog onClose={onClose} open={open} maxWidth="xs" fullWidth fullScreen={fullScreen}>
       <DialogTitle onClose={onClose} style={titleStyle}>
         {title}
       </DialogTitle>

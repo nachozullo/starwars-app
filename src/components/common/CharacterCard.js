@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     margin: "5px 0",
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "600",
   },
 }));

@@ -1,6 +1,7 @@
 import React from "react";
 import { IconButton, InputBase, makeStyles, Paper } from "@material-ui/core";
-import { Close, Search } from "@material-ui/icons";
+import { Close, Search, Tune } from "@material-ui/icons";
+import { useSmallScreen } from "../../hooks";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -36,12 +37,13 @@ const useStyles = makeStyles(theme => ({
 
 const SearchBar = ({ filterBy, filterByValue, setFilterByValue, openFilterDialog }) => {
   const styles = useStyles();
+  const [smallScreen] = useSmallScreen();
   return (
     <Paper className={styles.container}>
       <div className={styles.inputContainer}>
         <Search className={styles.searchIcon} />
         <InputBase
-          placeholder={`Search character by ${filterBy}...`}
+          placeholder={`Search ${smallScreen ? "" : "character "}by ${filterBy}...`}
           inputProps={{ "aria-label": "search" }}
           className={styles.input}
           value={filterByValue}
@@ -53,9 +55,15 @@ const SearchBar = ({ filterBy, filterByValue, setFilterByValue, openFilterDialog
           <Close style={{ fontSize: 18 }} />
         </IconButton>
       )}
-      <span className={styles.filterBy} onClick={openFilterDialog}>
-        FILTER BY
-      </span>
+      {smallScreen ? (
+        <IconButton style={{ padding: "0 0 2px" }} onClick={openFilterDialog}>
+          <Tune color="primary" style={{ fontSize: 24 }} />
+        </IconButton>
+      ) : (
+        <span className={styles.filterBy} onClick={openFilterDialog}>
+          FILTER BY
+        </span>
+      )}
     </Paper>
   );
 };
