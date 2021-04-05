@@ -1,15 +1,5 @@
 ## Star Wars APP
 
-### Demo
-
-https://starwars-github.netlify.app/
-
-### Demo 
-
-https://starwars-github.netlify.app/
-
-### What should you build?
-
 Design a small React app that shows a list of characters using the api SWAPI (https://swapi.dev/). This list should have a traditional pager or a scrolling pager, you decide. Add the ability to navigate the list filtering by race, character, planets and starships. When an item is clicked, show the details of it.
 
 Also, create another section called "My Galactic League" where the user can add:
@@ -24,6 +14,10 @@ My Galactic League must have at least one character of the 3 selected races. And
 The items on "My Galactic League" can be added or deleted always respecting the maximum and restrictions commented before.
 
 For saving the data of "My Galactic League" use something local, may be cookies, local storage or something else. But don't use anything on the server side.
+
+### Demo
+
+https://starwars-github.netlify.app/
 
 ### Notes
 
